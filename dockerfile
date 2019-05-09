@@ -1,4 +1,4 @@
-# Angular App ========================================
+# Angular
 FROM johnpapa/angular-cli as angular-app
 # Copy and install the Angular app
 WORKDIR /app
@@ -7,13 +7,13 @@ RUN npm install
 COPY . /app
 RUN ng build --prod
 
-#Express server =======================================
+#Express
 FROM node:10-alpine as express-server
 WORKDIR /app
 COPY /src/server /app
 RUN npm install --production
 
-#Final image ========================================
+#Crear imagen
 FROM node:10-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
